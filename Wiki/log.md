@@ -23,6 +23,6 @@ tags:
 - index.md 업데이트: Knowledge Management 도메인 추가
 
 ## [2026-04-12] archive | 나만의 LLM Wiki 구축기
-- 파일: [[conv-20260412-013415]]
+- 파일: [[ai-archive-20260412-013415]]
 - 주제: 세션 시작부터 첫 커밋/푸시까지의 vault 구축 전 과정
 - 대화 기록 + Wiki 페이지 7종 동시 생성

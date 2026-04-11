@@ -1,0 +1,49 @@
+filters:
+  or:
+    - file.hasTag("next")
+    - file.hasTag("someday")
+    - file.hasTag("todo")
+properties:
+  file.name:
+    displayName: 파일
+  file.folder:
+    displayName: 위치
+  note.tags:
+    displayName: 태그
+  file.mtime:
+    displayName: 수정일
+views:
+  - type: table
+    name: 할일 목록
+    order:
+      - file.name
+      - tags
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: table
+    name: 다음에 할 일
+    filters:
+      and:
+        - file.hasTag("next")
+    order:
+      - file.name
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: table
+    name: 언젠가 할 일
+    filters:
+      and:
+        - file.hasTag("someday")
+    order:
+      - file.name
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
