@@ -7,6 +7,9 @@
 # Claude Code
 .claude/
 
+# Toby save-conversation logs (자동 생성 요약 로그)
+conv-logs/
+
 # OS
 .DS_Store
 .tmp.driveupload/

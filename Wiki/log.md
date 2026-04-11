@@ -10,27 +10,19 @@ tags:
 
 ---
 
-## [2026-04-12] init | Wiki 초기화
-- 디렉토리 구조 생성
-- 템플릿 설정 (Concept, Entity, Source Summary, Synthesis)
-- CLAUDE.md 스키마 작성
-- 첫 번째 도메인: Kotlin
-
-## [2026-04-12] ingest | Kotlin Basic Syntax - kotlinlang.org
-- 소스: https://kotlinlang.org/docs/basic-syntax.html
-- defuddle로 추출 후 Clippings에 저장
+## [2026-04-12] ingest | Knowledge Management 도메인 위키 구축
+- Karpathy Gist 원본 요약을 Clippings에 저장
 - 생성된 위키 페이지:
-  - [[Kotlin]] (개체 — 언어 전체 개요)
-  - [[Kotlin 함수]] (개념 — fun, 표현식 본문, Unit)
-  - [[Kotlin 변수와 타입]] (개념 — val/var, 타입 추론, 스마트 캐스트)
-  - [[Null Safety]] (개념 — nullable 타입, null 체크)
-  - [[Kotlin 제어 흐름]] (개념 — if/when 표현식, ranges)
-  - [[Kotlin 컬렉션]] (개념 — 함수형 컬렉션 연산)
+  - [[LLM Wiki]] (개념 — 핵심 패턴 정의)
+  - [[Zettelkasten]] (개념 — 상향식 노트 방법론)
+  - [[PARA]] (개념 — 실행 가능성 기반 분류)
+  - [[Obsidian]] (개체 — 지식 관리 도구)
+  - [[Steph Ango]] (개체 — Obsidian CEO)
+  - [[Obsidian Bases]] (개념 — 동적 뷰 기능)
+  - [[Andrej Karpathy]] (개체 — LLM Wiki 제안자)
+- index.md 업데이트: Knowledge Management 도메인 추가
 
-## [2026-04-12] ingest | Kotlin Getting Started - kotlinlang.org
-- 소스: https://kotlinlang.org/docs/getting-started.html
-- defuddle로 추출 후 Clippings에 저장
-- 업데이트된 위키 페이지:
-  - [[Kotlin]] (사용 영역 테이블 추가)
-  - [[JetBrains]] (개체 — 신규 생성)
-- index.md 업데이트 완료
+## [2026-04-12] archive | 나만의 LLM Wiki 구축기
+- 파일: [[conv-20260412-013415]]
+- 주제: 세션 시작부터 첫 커밋/푸시까지의 vault 구축 전 과정
+- 대화 기록 + Wiki 페이지 7종 동시 생성

@@ -10,6 +10,24 @@ tags:
 
 ---
 
+## Knowledge Management
+
+### 개체 (Entities)
+- [[Andrej Karpathy]] — LLM Wiki 패턴 제안자
+- [[Steph Ango]] — Obsidian CEO, vault 구조 원칙
+- [[Obsidian]] — 마크다운 기반 지식 관리 도구
+
+### 개념 (Concepts)
+- [[LLM Wiki]] — LLM이 위키를 자동 관리하는 지식 시스템
+- [[Zettelkasten]] — 상향식 원자적 노트 축적 방법론
+- [[PARA]] — 실행 가능성 기반 정보 분류 방법론
+- [[Obsidian Bases]] — frontmatter 기반 동적 뷰 기능
+
+### 소스 요약 (Sources)
+- [[LLM Wiki - Karpathy Gist 요약]] — Karpathy 원문 요약
+
+---
+
 ## Kotlin
 
 ### 개체 (Entities)
@@ -36,4 +54,4 @@ tags:
 
 ---
 
-*마지막 업데이트: 2026-04-12 — 2개 소스 수집, 7개 위키 페이지 생성*
+*마지막 업데이트: 2026-04-12 — 3개 소스 수집, 14개 위키 페이지 생성*
