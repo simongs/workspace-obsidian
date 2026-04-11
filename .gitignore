@@ -1,0 +1,12 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+.trash/
+
+# Claude Code
+.claude/
+
+# OS
+.DS_Store
+.tmp.driveupload/
