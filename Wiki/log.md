@@ -2,27 +2,31 @@
 tags:
   - wiki
   - log
+updated: 2026-04-18
 ---
 
-# Wiki Log
+# Wiki Log — 월별 인덱스
 
-활동 로그. 각 항목은 `## [날짜] 작업유형 | 제목` 형식입니다.
+상세 로그는 `Wiki/logs/YYYY-MM.md` 에 있다. 이 페이지는 월별 요약 + 총합 카운트.
 
 ---
 
-## [2026-04-12] ingest | Knowledge Management 도메인 위키 구축
-- Karpathy Gist 원본 요약을 Clippings에 저장
-- 생성된 위키 페이지:
-  - [[LLM Wiki]] (개념 — 핵심 패턴 정의)
-  - [[Zettelkasten]] (개념 — 상향식 노트 방법론)
-  - [[PARA]] (개념 — 실행 가능성 기반 분류)
-  - [[Obsidian]] (개체 — 지식 관리 도구)
-  - [[Steph Ango]] (개체 — Obsidian CEO)
-  - [[Obsidian Bases]] (개념 — 동적 뷰 기능)
-  - [[Andrej Karpathy]] (개체 — LLM Wiki 제안자)
-- index.md 업데이트: Knowledge Management 도메인 추가
+## 월별 인덱스
 
-## [2026-04-12] archive | 나만의 LLM Wiki 구축기
-- 파일: [[ai-archive-20260412-013415]]
-- 주제: 세션 시작부터 첫 커밋/푸시까지의 vault 구축 전 과정
-- 대화 기록 + Wiki 페이지 7종 동시 생성
+| 월 | 로그 | ingest | archive | query | lint |
+|----|------|--------|---------|-------|------|
+| [[logs/2026-04\|2026-04]] | 상세 | 3 | 1 | 0 | 0 |
+
+---
+
+## 누적 통계 (2026-04-18 기준)
+
+| 지표 | 값 |
+|------|---|
+| 총 ingest | 3 |
+| 총 archive | 1 |
+| 총 query | 0 |
+| 총 lint | 0 |
+| 활성 도메인 | 1 (배경지식) |
+
+> 이 vault는 개인 PC 스캐폴드. 회사 PC의 운영 vault(HMG-Settlement 등)와 분리되어 있다.
