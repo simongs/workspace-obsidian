@@ -1,6 +1,6 @@
 ---
 name: obsidian-ai-session-ingest
-description: LLM과의 대화를 Obsidian vault에 상세한 지식 아카이브로 저장한다. 사용자 질문 원문 보존, 구조적 결과물 상세 기록, Insight 보존, 참고 개념 wikilink 연결, 설치/설정 재현 기록. "대화를 옵시디언에 저장해줘", "대화 아카이브 해줘", "obsidian에 대화 저장", "이 대화를 기록해줘", "세션 아카이브 해줘", "대화 기록 남겨줘", "save conversation to obsidian", "archive this conversation", "ai archive"에 반응.
+description: LLM과의 대화를 Obsidian vault에 상세한 지식 아카이브로 저장한다. 사용자 질문 원문 보존, 구조적 결과물 상세 기록, Insight 보존, 참고 개념 wikilink 연결, 설치/설정 재현 기록. "대화를 옵시디언에 저장해줘", "대화 아카이브 해줘", "obsidian에 대화 저장", "이 대화를 기록해줘", "세션 아카이브 해줘", "대화 기록 남겨줘", "save conversation to obsidian", "archive this conversation", "ai archive" 같은 요청에 반드시 이 스킬을 사용한다.
 ---
 
 # obsidian-ai-session-ingest
@@ -10,7 +10,7 @@ LLM과의 대화를 Obsidian vault의 `Sources/ai-sessions/`에 원본으로 저
 ## 핵심 원칙
 
 - 사용자의 질문은 **원문 그대로(full-text)** 보존한다
-- 답변은 상세히 기록하되, 사용된 도구/스킬은 🥕 이모지와 함께 답변 본문에 자연스럽게 녹인다
+- 답변은 상세히 기록하되, 사용된 도구/스킬은 🥕 이모지와 함께 답변 본문에 자연스럽게 녹인다 (사용자 전역 CLAUDE.md 규칙 준수)
 - 대화에서 나온 **★ Insight는 있는 경우에만** 포함한다
 - 선행 지식이 필요한 개념은 **참고 개념** 섹션에 `[[wikilink]]` + 한 줄 설명으로 기록한다
 - 설치/설정, 다음 단계 등은 **해당 내용이 있을 때만** 기록한다
@@ -64,49 +64,13 @@ FILENAME="${VAULT_ROOT}/Sources/ai-sessions/${DATE}_${SESSION_NAME}.md"
 
 ### Step 4: Wiki 위치 결정
 
-대화 중 Wiki에 기록할 지식이 있다면, **문서 작성 전에** 위치를 사용자와 합의한다.
-
-1. `Wiki/index.md`를 읽어 관련 도메인의 기존 페이지를 파악한다
-2. 후보 위치 2~3개를 제시하고 선택을 요청한다
-
-```
-Wiki 페이지 위치를 결정하겠습니다.
-
-**후보 A** — 기존 [[Wiki/도메인/기존파일명]]에 합치기
-이유: (합치려는 근거)
-
-**후보 B** — 새 파일 [[Wiki/도메인/새파일명]] 생성
-이유: (분리하려는 근거)
-
-**후보 C** — 기존 파일에 섹션 추가 + 교차참조
-이유: (분량이 적거나 맥락이 강할 때)
-
-어느 위치가 좋으신가요?
-```
+대화 중 Wiki에 기록할 지식이 있다면 → **`../_shared/wiki-placement.md`** 참조 (자동 결정 기준 + 후보 제시 규칙).
 
 Wiki에 기록할 내용이 없는 대화라면 이 단계를 건너뛴다.
 
----
+### Callout 스타일
 
-### Callout 스타일 가이드 (obsidian-admonition)
-
-Sources 및 Wiki 문서 작성 시 ``` 코드블록 대신 **Obsidian Native Callout**을 사용한다.
-실제 프로그래밍 코드(Java, Kotlin, SQL, bash)는 ``` 코드블록을 유지한다.
-
-| 상황 | Callout 타입 |
-|------|:----------:|
-| 흐름도, 아키텍처 다이어그램 | `[!example]` |
-| 핵심 원칙 / 반드시 기억해야 할 결론 | `[!important]` |
-| 배경 설명 / 개념 보충 | `[!info]` |
-| 판별 로직 / 멘탈 모델 | `[!tip]` |
-| 주의사항 / 혼동 방지 / SAP 핵심 제약 | `[!warning]` |
-| 정상 케이스 / 성공 시나리오 | `[!success]` |
-| 미확인 / 열린 질문 | `[!question]` |
-| 후속 작업 / 미결 사항 | `[!todo]` |
-| 이슈 / 문제 원인 | `[!failure]` |
-| 학습 인사이트 / 핵심 발견 | `[!insight]` |
-
-**원칙**: 모든 callout은 기본 펼침 (`-` 접힘 금지, 단 `[!quote]-` 원본 전문 인용은 예외). 텍스트 아트 흐름도는 callout으로, 실제 코드는 코드블록 유지.
+Sources 및 Wiki 문서 작성 시 → **`../_shared/callout-guide.md`** 참조.
 
 ---
 
@@ -192,8 +156,8 @@ tags:
 - **구조적 결과물은 상세히**: 디렉토리 구조, 비교 테이블, 코드 블록 등 원본 그대로
 - **단순 확인/인사는 생략**: "네", "알겠습니다" 등 실질적 내용 없는 교환 제외
 - **의사결정 근거 포함**: "왜 이 방식을 선택했는가"를 본문에 자연스럽게 포함
-- **도구/스킬 표기**: 🥕 이모지와 함께 자연스럽게 언급
-  - 예: "🥕 WebFetch로 kepano의 vault 레포를 분석한 결과..."
+- **도구/스킬 표기**: 🥕 이모지와 함께 자연스럽게 언급 (전역 CLAUDE.md 규칙 준수)
+  - 예: "🥕 WebFetch로 문서를 분석한 결과..."
   - 예: "🥕 defuddle로 공식 문서를 추출하여 Sources에 저장했다."
 
 #### 참고 개념
@@ -236,33 +200,9 @@ Insight가 없는 주제에서는 생략.
 
 ---
 
-### Step 8: 저장 및 git commit
+### Step 8: 저장 및 git commit + push
 
-모든 파일 작업이 완료되면 git commit을 수행한다.
-
-```bash
-git add -A
-git commit -m "$(cat <<'EOF'
-archive: [세션 제목] — [핵심 내용 한 줄 요약]
-
-- Sources: Sources/ai-sessions/{날짜}_{세션이름}.md
-- Wiki: [생성/업데이트된 페이지 목록]
-EOF
-)"
-```
-
-커밋 메시지: `archive: [세션 제목] — [핵심 요약]`
-
-git commit 완료 후, 생성/업데이트된 파일의 Obsidian 링크를 제공한다:
-
-```
-✅ archive 완료
-
-[세션 파일명](obsidian://open?vault=workspace-obsidian&file=Sources/ai-sessions/...)
-[Wiki 페이지명](obsidian://open?vault=workspace-obsidian&file=Wiki/...)   ← Wiki 생성 시에만
-```
-
-vault 이름은 항상 `workspace-obsidian` 고정. 파일 경로는 vault 루트 기준 상대경로, `.md` 확장자 생략.
+→ **`../_shared/git-workflow.md`** 참조. commit prefix는 **`archive:`**.
 
 ---
 
