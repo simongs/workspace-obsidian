@@ -32,6 +32,8 @@ LLM(Claude Code)이 ingest/query/lint 실행 시 자동으로 갱신한다. 도�
 - [[북미/Zuora/Zuora Platform|Zuora Platform]] — API/Integration/Events (SAP 연동 경로)
 - [[북미/Zuora/Subscription|Subscription]] — 구독 계약 단위 (Termed vs Evergreen)
 - [[북미/Zuora/Accounts Receivable|Accounts Receivable]] — AR 파이프라인 + Zuora Finance (GL/SAP 연결 레이어) ⭐
+- **플로우**:
+    - [[북미/Zuora/flows/Invoice Payment Flow|Invoice Payment Flow]] — 일회성 vs 월 구독 결제 흐름 비교
 - **4 Documents** (Zuora → SAP 연동 대상):
     - [[북미/Zuora/documents/Invoice|Invoice]] — 정상 청구 (AR ↑)
     - [[북미/Zuora/documents/Payment|Payment]] — 결제 수령 (AR ↓)
