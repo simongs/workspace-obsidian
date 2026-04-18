@@ -141,16 +141,18 @@ sources:
 | **Payment Run** | 결제 일괄 수집 (주로 구독용). 일회성은 개별 처리 |
 | **Invoice Settlement** | Payment/Credit Memo를 Invoice에 apply. 반제 |
 
-## 4 Documents의 발생 시점
+## 4 Documents의 발생 시점 (HMG 구성)
 
 플로우별 4 Documents 발생 패턴:
 
 | Document | 월 구독에서 | 일회성에서 |
 |----------|----------|---------|
-| **Invoice** | 매 Bill Cycle마다 자동 | 개별 Order Line Item 발생 시 |
-| **Payment** | Payment Run 배치 | 개별 Payment Form/API |
-| **Credit Memo** | Proration 취소, 이벤트 driven | 환불·반품·오류 정정 |
-| **Debit Memo** | Undercharge 사후 정정 | Ad hoc 추가 청구 |
+| **[[Invoice]]** | 매 Bill Cycle마다 자동 | 개별 Order Line Item 발생 시 |
+| **[[Credit Memo]]** | Proration 취소, 이벤트 driven | 환불·반품·오류 정정 |
+| **[[Payment]]** | Payment Run 배치 | 개별 Payment Form/API |
+| **[[Refund]]** | 구독 취소 시 (Credit Memo + Refund 조합) | 환불 요청 시 개별 처리 |
+
+Zuora 공식엔 [[Debit Memo]]도 있지만 HMG 4 Documents에는 미포함 (undercharge 정정 시나리오가 드묾).
 
 ## SAP 연동 관점 — 두 플로우를 어떻게 다루나
 

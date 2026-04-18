@@ -109,16 +109,18 @@ Zuora Collections 구성:
 
 ## 본인 프로젝트(4 Documents → SAP)에 대한 최종 뷰
 
-4 Documents가 여기에 어떻게 매핑되는지:
+HMG 4 Documents가 AR 파이프라인에 어떻게 매핑되는지:
 
 | Document | AR 파이프라인 위치 | Finance 관점 |
 |----------|--------------|---------|
-| [[Invoice]] | ① Invoice management | CoA에 따라 매출/AR 계정 |
-| [[Debit Memo]] | ① (추가 invoice로 취급) | AR 증가 |
-| [[Credit Memo]] | ④ (settlement의 대안) | AR 감소 (매출 차감) |
-| [[Payment]] | ③ + ④ | 현금 → AR 감소 |
+| [[Invoice]] | ① Invoice management | CoA에 따라 매출/AR 계정 (AR ↑) |
+| [[Credit Memo]] | ④ settlement의 대안 | 매출 차감 (AR ↓ 장부) |
+| [[Payment]] | ③ + ④ | 현금 → AR 감소 (현금 ↑ / AR ↓) |
+| [[Refund]] | 독립 전표 (Credit Memo 후속) | 현금 유출 (현금 ↓) |
 
-→ 4 Documents는 각각 **Journal Entry로 변환**되어 SAP에 전달됨.
+→ 4 Documents는 각각 **Journal Entry로 변환**되어 SAP에 전달됨. Refund는 현금 이동이 실제 발생하므로 독립 전표로 처리.
+
+(참고: [[Debit Memo]]는 Zuora 공식 개념이지만 HMG 4 Documents 미포함.)
 
 ## 관련
 

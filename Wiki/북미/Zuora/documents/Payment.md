@@ -67,7 +67,8 @@ Payment은 다양한 integration approach로 생성된다:
 ## 관련
 
 - [[Invoice]] — Payment의 적용 대상
-- [[Credit Memo]] — Payment 없이 AR을 감소시키는 대안 (환불/할인)
+- [[Credit Memo]] — Payment 없이 AR을 감소시키는 대안 (환불성 장부 처리)
+- [[Refund]] — Payment의 역방향 트랜잭션 (실제 현금 유출)
 - [[Zuora Payments]] — Payment 생성 제품
 - [[Paymentech]] — 실제 연동 PG
 

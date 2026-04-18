@@ -40,9 +40,9 @@ sources:
 
 > [!warning] Credit Memo ≠ Refund
 > - **Credit Memo**: AR(장부) 차감. 실제 현금은 움직이지 않음.
-> - **Refund**: Credit Memo의 **잔액을 고객에게 현금으로 돌려주는** 후속 액션. 별도 트랜잭션.
+> - **[[Refund]]**: Credit Memo의 **잔액을 고객에게 현금으로 돌려주는** 후속 액션. 별도 트랜잭션이자 별도 Document.
 >
-> 공식 기능 리스트에 "Refund a certain amount of the credit memo balance to your customer"라고 명시되어 있음 — Refund는 Credit Memo의 파생.
+> 공식 기능 리스트에 "Refund a certain amount of the credit memo balance to your customer"라고 명시되어 있음 — Refund는 Credit Memo의 파생. **HMG 4 Documents에서는 Credit Memo와 Refund가 모두 독립 Document로 분리 추적**된다.
 
 ## 발행 방식 3가지 (공식)
 

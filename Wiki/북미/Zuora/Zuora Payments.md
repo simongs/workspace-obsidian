@@ -16,7 +16,7 @@ sources:
 ## 4 Documents 관점의 역할
 
 > [!important] 본인 프로젝트와의 접점
-> 4 Documents 중 **Payment**의 생성 주체. Billing이 만든 Invoice를 받아 실제 돈을 회수하는 쪽.
+> HMG 4 Documents 중 **Payment · Refund** 2개의 생성 주체. Billing이 만든 Invoice를 받아 실제 돈을 회수하고([[Payment]]), 필요 시 돈을 되돌려 보낸다([[Refund]]).
 
 ## 핵심 키워드 3개
 
@@ -52,7 +52,8 @@ sources:
 - [[Zuora]] — 상위 플랫폼
 - [[Zuora Billing]] — 함께 packaged, Invoice 생성
 - [[Zuora Platform]] — API/Integration 기반
-- [[Payment]] · [[Refund]] — 객체 수준 (세션 A-2/C)
+- [[Payment]] — HMG 4 Documents 중 하나
+- [[Refund]] — HMG 4 Documents 중 하나 (Payment 역방향)
 - [[Paymentech]] — 실제 연동 PG
 
 ## 참고 소스

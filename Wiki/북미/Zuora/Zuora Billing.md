@@ -16,7 +16,9 @@ Zuora의 핵심 제품. **구독 기반 비즈니스를 위한 recurring billing
 ## 4 Documents 관점의 역할
 
 > [!important] 본인 프로젝트(4 Documents → SAP 연동)와의 접점
-> 4 Documents 중 **Invoice · Credit Memo · Debit Memo** 3개가 Zuora Billing에서 생성된다. 남은 **Payment**는 [[Zuora Payments]]에서 생성되지만, Billing과 Payments는 "packaged together"로 통합 동작한다.
+> HMG 4 Documents (Invoice · Credit Memo · Payment · Refund) 중 **Invoice · Credit Memo**가 Zuora Billing에서 생성된다. 남은 **Payment · Refund**는 [[Zuora Payments]]에서 생성되지만, Billing과 Payments는 "packaged together"로 통합 동작한다.
+>
+> Zuora 공식 Billing Document에는 **Debit Memo**도 포함되지만, HMG 프로젝트의 4 Documents에는 들어가지 않는다.
 
 ## 핵심 기능 (3그룹 재편)
 
