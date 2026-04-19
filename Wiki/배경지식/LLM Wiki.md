@@ -6,7 +6,6 @@ domain:
   - Knowledge Management
 related:
   - "[[Zettelkasten]]"
-  - "[[PARA]]"
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
 sources:
@@ -61,5 +60,4 @@ Vannevar Bush의 **Memex(1945)** — 연관 경로(associative trails)가 있는
 ## 관련 개념
 
 - [[Zettelkasten]] — 상향식 원자적 노트 축적. LLM Wiki의 노트 성숙도 흐름과 결합
-- [[PARA]] — 실행 가능성 기반 분류. LLM Wiki에서 properties로 구현
 - [[Obsidian]] — LLM Wiki의 이상적인 저장소. 마크다운 기반, 그래프 뷰, git 호환

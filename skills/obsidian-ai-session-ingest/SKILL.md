@@ -9,6 +9,7 @@ LLM과의 대화를 Obsidian vault의 `Sources/ai-sessions/`에 원본으로 저
 
 ## 핵심 원칙
 
+- 결과 `.md` 파일 작성 시 **`obsidian:obsidian-markdown` 스킬**의 Obsidian Flavored Markdown 규칙 준수 (wikilinks·embeds·properties·callouts)
 - 사용자의 질문은 **원문 그대로(full-text)** 보존한다
 - 답변은 상세히 기록하되, 사용된 도구/스킬은 🥕 이모지와 함께 답변 본문에 자연스럽게 녹인다 (사용자 전역 CLAUDE.md 규칙 준수)
 - 대화에서 나온 **★ Insight는 있는 경우에만** 포함한다

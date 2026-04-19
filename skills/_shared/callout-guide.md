@@ -2,6 +2,8 @@
 
 이 vault의 모든 스킬이 공유하는 Callout 작성 규칙.
 
+> **상위 규칙**: md 파일 작성 시 wikilinks·embeds·properties·frontmatter 등 Obsidian Flavored Markdown 문법은 **`obsidian:obsidian-markdown` 스킬**을 준수한다. 이 가이드는 그 위에서 Callout에 대한 vault-특정 관습만 정의한다.
+
 Wiki / Sources 문서 작성 시 ``` 코드블록 대신 **Obsidian Native Callout**을 사용한다.
 실제 프로그래밍 코드(Java, Kotlin, SQL, bash 등)는 ``` 코드블록을 유지한다.
 
