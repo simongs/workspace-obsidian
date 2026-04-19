@@ -23,6 +23,8 @@ description: |
 
 **결과 md 작성 규칙**: 이 스킬이 생성하는 모든 `.md` 파일(Sources·Wiki)은 **`obsidian:obsidian-markdown` 스킬**의 Obsidian Flavored Markdown 규칙을 준수한다 (wikilinks, embeds, properties, callouts 등). Callout 세부 관습은 `../_shared/callout-guide.md`.
 
+**사용자 사고 검증 (필수)**: Ingest 과정에서 사용자 주장에 사실 오류·소수 관점·검증 부족이 발견되면 **적극 지적**한다. 무비판적 동의 금지. 규칙: **`../_shared/cognitive-safety.md`**.
+
 ---
 
 ## 소스 유형 판별 (스킬 진입 시 가장 먼저)
