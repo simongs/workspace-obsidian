@@ -16,6 +16,7 @@ tags:
 - [[Andrej Karpathy]] — LLM Wiki 패턴 제안자
 - [[Steph Ango]] — Obsidian CEO, vault 구조 원칙
 - [[Obsidian]] — 마크다운 기반 지식 관리 도구
+- [[Obsidian CLI]] — vault를 터미널/자동화에서 조작하는 인터페이스
 
 ### 개념 (Concepts)
 - [[LLM Wiki]] — LLM이 위키를 자동 관리하는 지식 시스템
@@ -26,6 +27,9 @@ tags:
 ### 소스 요약 (Sources)
 - [[LLM Wiki - Karpathy Gist 요약]] — Karpathy 원문 요약
 
+### 창립 기록 (Archive)
+- [[ai-archive-20260412-013415]] — 이 vault의 설계와 구축 과정 대화 아카이브
+
 ---
 
 ## Kotlin
@@ -33,6 +37,9 @@ tags:
 ### 개체 (Entities)
 - [[Kotlin]] — 언어 전체 개요, 특징, 사용 영역
 - [[JetBrains]] — Kotlin 개발사
+- [[IntelliJ IDEA]] — JetBrains 대표 IDE, Kotlin 기본 탑재
+- [[Android Studio]] — IntelliJ 기반 Android 공식 IDE
+- [[JVM]] — Kotlin의 기본 타겟 런타임
 
 ### 개념 (Concepts)
 - [[Kotlin 함수]] — fun 키워드, 블록 본문, 표현식 본문, Unit
@@ -54,4 +61,4 @@ tags:
 
 ---
 
-*마지막 업데이트: 2026-04-12 — 3개 소스 수집, 14개 위키 페이지 생성*
+*마지막 업데이트: 2026-04-18 — 3개 소스, 20개 위키 페이지 (개체 9, 개념 9, 소스 요약 2)*
