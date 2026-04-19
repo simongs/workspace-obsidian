@@ -119,8 +119,7 @@ Claude가 Layer 0(큰 그림)부터 시작해 원하는 깊이까지 안내.
 | 소스 위치 | 처리 방법 |
 |-----------|---------|
 | `Daily/` | **ingest 완료 후 파일 삭제** (Daily = 스테이징 영역. Source에 원본 전문 callout 포함) |
-| `Notes/Inbox/` | **ingest 완료 후 파일 삭제** (처리 대기 스테이징 영역) |
-| `Notes/` (Inbox 제외) | 파일 보존. 하단에 역참조 추가: `related: [[Sources/...]], [[Wiki/개념명]]` |
+| `Notes/` | **LLM은 수정하지 않음** — 사용자 개인 공간. 사용자가 명시적으로 "이 Note를 Source로 승격" 요청할 때만 Sources로 이동 후 ingest |
 
 ---
 
@@ -486,15 +485,28 @@ Sources 파일 본문 구성:
 
 > [!warning] 소감 비어있으면 저장 거부
 > 3개 서브섹션(공감/반론/적용) 중 **최소 1개 이상에 내용**이 있어야 ingest 완료. 전부 비어있으면:
-> - "지금 소감 쓸 시간이 없다" → `Notes/Inbox/`로 임시 이동 후 나중에 완성. **Sources/articles/에는 저장 안 함.**
+> - "지금 소감 쓸 시간이 없다" → ingest 중단. 저장 안 함. URL만 사용자에게 돌려주고 나중에 다시 요청하도록 안내
 > - 또는 사용자가 "저장만 하고 소감은 나중" 명시 → 예외적으로 저장하되 frontmatter에 `reflection-pending: true` 표식
 
-### Step 5: Wiki 연결
+### Step 5: Wiki 연결 — 저자 귀속 규칙 ⭐
 
-소감이 어떤 Wiki 개념에 영향을 주는지 확인:
-- 기존 Wiki 페이지에 "이 아티클로부터 받은 인사이트" 섹션 추가 또는 업데이트
-- 완전히 새로운 개념이면 Wiki 신규 페이지 생성 (Mode A/B 규칙과 동일)
+Article은 **Tier 2 Source** (저자 주장). Wiki 반영 시 **반드시 저자 귀속 인용** 형태로 기술한다. 사실처럼 서술 금지.
+
+```markdown
+❌ Wiki에 쓰지 말 것:
+   "AI에 의존하면 절차 기억이 약화된다."
+
+✅ Wiki에 이렇게 써야 함:
+   "[[Evan Moon]]은 AI 의존이 절차 기억 형성을 방해한다고 주장한다.
+   근거로 Bjork의 '바람직한 어려움', Anderson의 3단계 절차 기억 모델을 인용.
+   출처: [[Sources/articles/2026-04-18_evan-moon-developers-who-stopped-growing]]"
+```
+
+구체 작업:
+- 기존 Wiki 페이지에 "이 아티클이 제기한 관점" 섹션 추가 — 저자 귀속 유지
+- 완전히 새로운 개념이면 Wiki 신규 페이지 생성 — 저자 주장과 내 소감을 명확히 분리
 - Source frontmatter의 `wiki:` 배열에 연결 페이지 기록
+- 여러 저자의 상충하는 주장이 있으면 **양쪽 다 귀속 인용**으로 나란히 기록 (Wiki의 중립성 유지)
 
 ### Step 6: Wiki/logs 기록 + commit + push
 

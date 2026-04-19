@@ -13,16 +13,15 @@
 ```
 workspace-obsidian/
 ├── CLAUDE.md              # 이 파일 — LLM Wiki 운영 스키마
-├── Sources/             # ingest 완료된 원본 (생성 후 불변 — 수정 금지)
-├── Notes/                 # 사람이 쓰는 노트, 대화 아카이브
-│   └── Inbox/             # 미분류 노트 (분류 대기 중)
-├── Wiki/                  # LLM이 관리하는 위키 페이지
+├── Sources/               # ingest 완료된 원본 (생성 후 불변 — 수정 금지). LLM Wiki의 유일한 입력
+├── Wiki/                  # LLM이 관리하는 위키 페이지 (Sources로부터 컴파일)
 │   ├── index.md           # 위키 전체 목차 (도메인별)
 │   ├── log.md             # 활동 로그 월별 인덱스
 │   └── logs/              # 월별 상세 로그
 │       └── YYYY-MM.md     # 월별 활동 로그 (예: 2026-04.md)
+├── Notes/                 # 사용자 개인 메모 공간 (LLM Wiki 입력 아님)
 ├── Daily/                 # ingest 대기 노트 (YYYY-MM-DD_주제.md) — ingest 완료 후 삭제
-├── Templates/             # 노트 템플릿 (Wiki Entity, Concept, Source 등)
+├── Templates/             # 노트 템플릿
 └── Attachments/           # 이미지, PDF, 첨부 파일
 ```
 
@@ -30,26 +29,36 @@ workspace-obsidian/
 
 | 폴더 | 누가 쓰나 | 역할 |
 |------|-----------|------|
-| `Sources/` | 사람+LLM | ingest 완료된 원본 (불변) — 외부 소스 및 Daily/Notes에서 Q&A 검증 후 정제된 모든 원본 |
-| `Wiki/` | LLM | 컴파일된 지식 (개념, 개체, 종합) |
-| `Notes/` | 사람 | 직접 쓰는 노트, 대화 아카이브 |
-| `Notes/Inbox/` | 사람+LLM | 분류 대기 중인 노트 |
+| `Sources/` | 사람+LLM | **LLM Wiki의 유일한 입력**. Q&A 검증을 거친 불변 원본. Tier 1(공식 문서/Reference) + Tier 2(저자 아티클) |
+| `Wiki/` | LLM | 컴파일된 지식 (개념, 개체, 종합). Sources로부터만 생성 |
+| `Notes/` | 사람 | **사용자 개인 메모 공간**. vault 메타 원칙·회고·evergreen. **LLM은 Wiki 컴파일 입력으로 쓰지 않음**. 승격 시에만 사용자 명시 지시로 Sources로 이동 |
 | `Daily/` | 사람 | Ingest 대기 스테이징 영역 — `YYYY-MM-DD_주제.md` 형식으로 작성. ingest 완료 후 삭제. 파일이 남아있으면 = 미처리 신호 |
 | `Attachments/` | 사람 | 이미지, 파일 |
 
 ---
 
-## Zettelkasten 흐름
+## LLM Wiki 입력 원칙
 
 ```
-Fleeting (Daily/, Notes/)  →  [Q&A Ingest]  →  Literature (Sources/)  →  Permanent (Wiki/)
-    사람이 쓴다                  대화로 검증       정제된 원본 보관 (불변)       LLM이 컴파일
-         ↑                                              ↑
-    작업 로그, 날것의 사고                        외부 소스도 여기서 시작
+Daily/ (수집) ──▶ [Q&A Ingest] ──▶ Sources/ (불변 원본) ──▶ Wiki/ (LLM 컴파일)
+
+Notes/ (사용자 개인 메모)  — LLM Wiki 입력 아님. 필요시 명시 승격으로 Sources 이동.
 ```
 
-**핵심 원칙**: Wiki의 모든 지식은 반드시 Sources를 통과한다.
-자동 지식화는 없다. Daily/Notes의 내용은 Q&A ingest를 거쳐야만 Wiki로 갈 수 있다.
+**핵심 원칙**:
+- **Wiki의 모든 지식은 반드시 Sources를 통과한다.** 자동 지식화 없음.
+- **LLM Wiki 컴파일 입력은 Sources/ 단 하나.** Notes/는 사용자 개인 공간이며 Wiki 생성 대상에서 제외.
+- Notes/의 내용이 Wiki로 가려면 **사용자 명시 지시**로 Sources에 승격 후 ingest를 거친다.
+
+### Source 자격 Tier
+
+| Tier | 내용 | source-type | Wiki 반영 |
+|------|------|-----------|-----------|
+| Tier 1 | 공식 문서, 기술 스펙, Reference | `docs` | 사실로 컴파일, 저자 귀속 불필요 |
+| Tier 2 | 저자 주장이 담긴 아티클 (블로그·에세이·오피니언) | `article` | **저자 귀속 인용 필수** — "X는 ~라 주장한다" |
+| Tier 3 | Claude Code 세션, Q&A 기록 | `ai-session`, `ai-query` | 사건 기록으로 참조 |
+
+> Tier 2는 Source 자격이 있지만 Wiki에 **사실처럼** 들어가면 안 됨. 반드시 저자 귀속 인용 형태로 컴파일.
 
 ---
 
@@ -71,20 +80,19 @@ ingest는 두 종류로 나뉜다. **자동 지식화는 없으며**, 반드시 
 대상: Daily 노트, Notes, 외부 문서, 이미지, URL 등 **존재하는 모든 소스**
 
 ```
-1. 소스 분석 → 핵심 개념을 사용자에게 설명
-2. Q&A로 교차검증 (사용자가 개념을 직접 확인하고 빈 곳을 채움)
+1. 소스 분석 → 1차 정리 제시
+2. 리뷰 & 수정 반영 (Q&A는 필요 시)
 3. 검증 완료 후:
    a. Sources/날짜-주제.md 생성 (정제된 원본, 이후 불변)
-      - Daily / Notes/Inbox 소스: 정제된 내용 아래 원본 전문을 callout으로 포함
+      - Daily 소스: 정제된 내용 아래 원본 전문을 callout으로 포함
         `> [!quote]- 원본 노트 전문 보기`
    b. Wiki/ 관련 페이지 생성 또는 업데이트
    c. 기존 페이지의 교차참조 업데이트
    d. 원본 파일 처리:
       - **Daily/** → ingest 완료 후 **파일 삭제** (Daily = 스테이징 영역, Source에 원본 전문 포함)
-      - **Notes/Inbox/** → ingest 완료 후 **파일 삭제**
-      - **Notes/** (Inbox 제외) → 보존. 역참조(`related:`) 추가
+      - **Notes/** → LLM은 수정하지 않음 (사용자 개인 공간)
 4. Wiki/index.md 갱신
-5. Wiki/logs/YYYY-MM.md에 항목 추가: [날짜] #ingest | 제목 (출처: daily/notes/외부)
+5. Wiki/logs/YYYY-MM.md에 항목 추가: [날짜] #ingest | 제목 (출처: daily/외부/article)
 6. Wiki/log.md 인덱스 갱신 (해당 월 항목 수 업데이트)
 ```
 
