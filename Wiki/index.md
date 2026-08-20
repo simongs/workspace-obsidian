@@ -65,8 +65,11 @@ LLM(Claude Code)이 ingest/query/lint 실행 시 자동으로 갱신한다. 도�
 - [[Kotlin 변수와 타입]] — val/var, 타입 추론, 스마트 캐스트
 - [[Kotlin 함수]] — fun 키워드, 블록/표현식 본문, Unit
 - [[Kotlin 제어 흐름]] — if/when 표현식, for, while, ranges
-- [[Kotlin 컬렉션]] — List/Set/Map, filter/map/sortedBy
+- [[Kotlin 컬렉션]] — List/Set/Map, filter/map/flatMap, Sequence, Java Stream 대비
 - [[Null Safety]] — nullable 타입(?), null 체크
+
+**Java** (`배경지식/Tech/Java/`)
+- [[Stream API]] — 지연 평가 파이프라인, `flatMap`(1→N), Kotlin 컬렉션과의 대비 ⭐
 
 **Database** (`배경지식/Tech/Database/`)
 - [[Natural Key와 Surrogate Key]] — 자연키 vs 대리키, `@NaturalId`, PK 설계 원칙
