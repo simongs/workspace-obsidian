@@ -2,7 +2,7 @@
 tags:
   - wiki
   - index
-updated: 2026-04-18
+updated: 2026-08-20
 
 ---
 
@@ -67,6 +67,11 @@ LLM(Claude Code)이 ingest/query/lint 실행 시 자동으로 갱신한다. 도�
 - [[Kotlin 제어 흐름]] — if/when 표현식, for, while, ranges
 - [[Kotlin 컬렉션]] — List/Set/Map, filter/map/sortedBy
 - [[Null Safety]] — nullable 타입(?), null 체크
+
+**Database** (`배경지식/Tech/Database/`)
+- [[Natural Key와 Surrogate Key]] — 자연키 vs 대리키, `@NaturalId`, PK 설계 원칙
+- [[카디널리티와 선택성]] — ERD `1 ---- 0..1` 읽는 법, 최대/최소 카디널리티 2축
+- [[Fractional Indexing]] — 드래그 순서 관리, 사전순 문자열 키, LexoRank ⭐
 
 #### People (`배경지식/People/`)
 
